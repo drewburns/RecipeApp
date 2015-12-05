@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		519AA2F71C135BE000BA28A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA2F61C135BE000BA28A8 /* AppDelegate.swift */; };
-		519AA2F91C135BE000BA28A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA2F81C135BE000BA28A8 /* ViewController.swift */; };
 		519AA2FC1C135BE000BA28A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 519AA2FA1C135BE000BA28A8 /* Main.storyboard */; };
 		519AA2FF1C135BE000BA28A8 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 519AA2FD1C135BE000BA28A8 /* RecipeApp.xcdatamodeld */; };
 		519AA3011C135BE000BA28A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519AA3001C135BE000BA28A8 /* Assets.xcassets */; };
 		519AA3041C135BE000BA28A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 519AA3021C135BE000BA28A8 /* LaunchScreen.storyboard */; };
 		519AA30F1C135BE000BA28A8 /* RecipeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA30E1C135BE000BA28A8 /* RecipeAppTests.swift */; };
 		519AA31A1C135BE000BA28A8 /* RecipeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3191C135BE000BA28A8 /* RecipeAppUITests.swift */; };
+		519AA32A1C135C5200BA28A8 /* SwiftlyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3291C135C5200BA28A8 /* SwiftlyJSON.swift */; };
+		519AA32D1C135C6E00BA28A8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA32C1C135C6E00BA28A8 /* Recipe.swift */; };
+		519AA32F1C135C7900BA28A8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA32E1C135C7900BA28A8 /* Request.swift */; };
+		519AA3311C1368CD00BA28A8 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3301C1368CD00BA28A8 /* RecipesTableViewController.swift */; };
+		519AA3331C1368F700BA28A8 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3321C1368F700BA28A8 /* RecipeTableViewCell.swift */; };
+		519AA3351C1382BC00BA28A8 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,6 @@
 /* Begin PBXFileReference section */
 		519AA2F31C135BE000BA28A8 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		519AA2F61C135BE000BA28A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		519AA2F81C135BE000BA28A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		519AA2FB1C135BE000BA28A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		519AA2FE1C135BE000BA28A8 /* RecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		519AA3001C135BE000BA28A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,12 @@
 		519AA3151C135BE000BA28A8 /* RecipeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		519AA3191C135BE000BA28A8 /* RecipeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAppUITests.swift; sourceTree = "<group>"; };
 		519AA31B1C135BE000BA28A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		519AA3291C135C5200BA28A8 /* SwiftlyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftlyJSON.swift; path = ../SwiftlyJSON.swift; sourceTree = "<group>"; };
+		519AA32C1C135C6E00BA28A8 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		519AA32E1C135C7900BA28A8 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		519AA3301C1368CD00BA28A8 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		519AA3321C1368F700BA28A8 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +109,13 @@
 		519AA2F51C135BE000BA28A8 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				519AA32B1C135C6200BA28A8 /* Recipe */,
 				519AA2F61C135BE000BA28A8 /* AppDelegate.swift */,
-				519AA2F81C135BE000BA28A8 /* ViewController.swift */,
+				519AA3291C135C5200BA28A8 /* SwiftlyJSON.swift */,
 				519AA2FA1C135BE000BA28A8 /* Main.storyboard */,
+				519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */,
+				519AA3321C1368F700BA28A8 /* RecipeTableViewCell.swift */,
+				519AA3301C1368CD00BA28A8 /* RecipesTableViewController.swift */,
 				519AA3001C135BE000BA28A8 /* Assets.xcassets */,
 				519AA3021C135BE000BA28A8 /* LaunchScreen.storyboard */,
 				519AA3051C135BE000BA28A8 /* Info.plist */,
@@ -126,6 +140,15 @@
 				519AA31B1C135BE000BA28A8 /* Info.plist */,
 			);
 			path = RecipeAppUITests;
+			sourceTree = "<group>";
+		};
+		519AA32B1C135C6200BA28A8 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				519AA32C1C135C6E00BA28A8 /* Recipe.swift */,
+				519AA32E1C135C7900BA28A8 /* Request.swift */,
+			);
+			name = Recipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519AA32A1C135C5200BA28A8 /* SwiftlyJSON.swift in Sources */,
+				519AA3311C1368CD00BA28A8 /* RecipesTableViewController.swift in Sources */,
+				519AA32F1C135C7900BA28A8 /* Request.swift in Sources */,
 				519AA2FF1C135BE000BA28A8 /* RecipeApp.xcdatamodeld in Sources */,
-				519AA2F91C135BE000BA28A8 /* ViewController.swift in Sources */,
+				519AA3351C1382BC00BA28A8 /* RecipeViewController.swift in Sources */,
 				519AA2F71C135BE000BA28A8 /* AppDelegate.swift in Sources */,
+				519AA32D1C135C6E00BA28A8 /* Recipe.swift in Sources */,
+				519AA3331C1368F700BA28A8 /* RecipeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
