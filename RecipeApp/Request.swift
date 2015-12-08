@@ -36,9 +36,48 @@ class RestApiManager: NSObject {
         task.resume()
     }
     
-//    func makeHTTPPostRequest() {
-//        
-//    }
+    func makeHTTPPostRequest(image: UIImage, name: String, description: String , ingredients: String, instructions: String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://givemerecipes.herokuapp.com/api/recipes")!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let imageData = UIImageJPEGRepresentation(image, 0.9)
+        let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) // encode the image
+        let params = ["file_data": base64String, "user_id":1 , "name": name, "description": description, "ingredients": ingredients , "instructions": instructions]
+        do {
+           request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions(rawValue: 0))
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+                var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print(response)
+                // process the response
+            })
+            
+            task.resume()
+        } catch {
+            
+        }
+////        
+//        let request = NSMutableURLRequest(URL: NSURL(string: "https://givemerecipes.herokuapp.com/api/recipes")!)
+//        request.HTTPMethod = "POST"
+//        let postString = "name=Chicken&description=there+is+lots+of+fun+stuff"
+//        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+//            data, response, error in
+//
+//            if error != nil {
+//                print("error=\(error)")
+//                return
+//            }
+//
+//            print("response = \(response)")
+//
+//            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+//            print("responseString = \(responseString)")
+//        }
+//        task.resume()
+    }
 
     
     func getImage(url: String) -> UIImage {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5186E0DE1C14FFF000D76D35 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5186E0DD1C14FFF000D76D35 /* NewRecipeViewController.swift */; };
 		519AA2F71C135BE000BA28A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA2F61C135BE000BA28A8 /* AppDelegate.swift */; };
 		519AA2FC1C135BE000BA28A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 519AA2FA1C135BE000BA28A8 /* Main.storyboard */; };
 		519AA2FF1C135BE000BA28A8 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 519AA2FD1C135BE000BA28A8 /* RecipeApp.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5186E0DD1C14FFF000D76D35 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		519AA2F31C135BE000BA28A8 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		519AA2F61C135BE000BA28A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		519AA2FB1C135BE000BA28A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				519AA2F61C135BE000BA28A8 /* AppDelegate.swift */,
 				519AA3291C135C5200BA28A8 /* SwiftlyJSON.swift */,
 				519AA2FA1C135BE000BA28A8 /* Main.storyboard */,
+				5186E0DD1C14FFF000D76D35 /* NewRecipeViewController.swift */,
 				519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */,
 				519AA3321C1368F700BA28A8 /* RecipeTableViewCell.swift */,
 				519AA3301C1368CD00BA28A8 /* RecipesTableViewController.swift */,
@@ -290,6 +293,7 @@
 				519AA32F1C135C7900BA28A8 /* Request.swift in Sources */,
 				519AA2FF1C135BE000BA28A8 /* RecipeApp.xcdatamodeld in Sources */,
 				519AA3351C1382BC00BA28A8 /* RecipeViewController.swift in Sources */,
+				5186E0DE1C14FFF000D76D35 /* NewRecipeViewController.swift in Sources */,
 				519AA2F71C135BE000BA28A8 /* AppDelegate.swift in Sources */,
 				519AA32D1C135C6E00BA28A8 /* Recipe.swift in Sources */,
 				519AA3331C1368F700BA28A8 /* RecipeTableViewCell.swift in Sources */,
@@ -519,6 +523,7 @@
 				519AA3201C135BE000BA28A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		519AA3211C135BE000BA28A8 /* Build configuration list for PBXNativeTarget "RecipeAppTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +532,7 @@
 				519AA3231C135BE000BA28A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		519AA3241C135BE000BA28A8 /* Build configuration list for PBXNativeTarget "RecipeAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +541,7 @@
 				519AA3261C135BE000BA28A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -75,5 +75,10 @@ class RecipesTableViewController: UITableViewController {
             }
         }
     }
+    @IBAction func goBack(segue: UIStoryboardSegue) {
+        refresh()
+    }
+
+
     
 }
