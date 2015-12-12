@@ -11,6 +11,8 @@ import Foundation
 
 class RecipesTableViewController: UITableViewController {
     var recipes = [[Recipe]]()
+    var search = "/recipes"
+    var userEmail: String?
     
     func refresh() {
         if refreshControl != nil {
@@ -21,7 +23,7 @@ class RecipesTableViewController: UITableViewController {
     @IBAction func refresh(sender: AnyObject) {
         recipes.removeAll()
         let request = RestApiManager.sharedInstance
-        request.getRecipes { (json) -> () in
+        request.getRecipes(search) { (json) -> () in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let arrayOfRecipes = self.buildRecipes(json["recipes"])
                 self.recipes.insert(arrayOfRecipes, atIndex: 0)
@@ -40,8 +42,13 @@ class RecipesTableViewController: UITableViewController {
             let ingredients = String(recipe["recipe"]["ingredients"]) ?? "None"
             let instructions = String(recipe["recipe"]["instructions"]) ?? "None"
             let imageUrl = String(recipe["recipe"]["picture"]["picture"]["url"]) ?? "None"
+            let userId = String(recipe["recipe"]["user"]["id"])
+            let userEmail = String(recipe["recipe"]["user"]["email"])
+            let userAccessKey = String(recipe["recipe"]["user"]["api_keys"]["api_key"]["access_token"]) ?? "None"
+            let createdUser = User(Email: userEmail, Id: Int(userId)!, Key: userAccessKey)
+            
             let image = RestApiManager().getImage(imageUrl)
-            let finalRecipe = Recipe(Name: name, Description: description, Ingredients: ingredients, Instructions: instructions, ImageUrl: imageUrl, Image: image)
+            let finalRecipe = Recipe(Name: name, Description: description, Ingredients: ingredients, Instructions: instructions, ImageUrl: imageUrl, Image: image, TheUser: createdUser)
             createdRecipes.append(finalRecipe)
         }
         return createdRecipes
@@ -54,6 +61,11 @@ class RecipesTableViewController: UITableViewController {
             tableView.rowHeight = UITableViewAutomaticDimension
         }
         refresh()
+        if search == "/recipes" {
+            title = "Recipes"
+        } else {
+            title = userEmail
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -77,6 +89,61 @@ class RecipesTableViewController: UITableViewController {
     }
     @IBAction func goBack(segue: UIStoryboardSegue) {
         refresh()
+    }
+    
+    
+    @IBAction func userOptions(sender: AnyObject) {
+        var alert = UIAlertController(
+            title: "User Options",
+            message: "Choose an option",
+            preferredStyle: UIAlertControllerStyle.ActionSheet
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: "See My Recipes",
+            style: UIAlertActionStyle.Default,
+            handler: { (UIAlertAction) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let id = String(NSUserDefaults.standardUserDefaults().stringForKey("currentUserId")!)
+                self.search = "/users/\(id)"
+                self.refresh()
+                self.title = "My Recipes"
+            })
+            }
+        ))
+        alert.addAction(UIAlertAction(
+            title: "See All Recipes",
+            style: UIAlertActionStyle.Default,
+            handler: { (UIAlertAction) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.search = "/recipes"
+                    self.refresh()
+                    self.title = "Recipes"
+                })
+            }
+            ))
+        alert.addAction(UIAlertAction(
+            title: "Logout",
+            style: UIAlertActionStyle.Destructive,
+            handler: { (UIAlertAction) -> Void in
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(nil, forKey: "currentUserId")
+                defaults.setObject(nil, forKey: "currentUserKey")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    print("HI")
+                    self.performSegueWithIdentifier("logOut", sender: self)
+                })
+            }
+        ))
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: UIAlertActionStyle.Cancel,
+            handler: { (UIAlertAction) -> Void in
+                
+            }
+        ))
+        presentViewController(alert, animated: true, completion: nil)
+        print(search)
     }
 
 

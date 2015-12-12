@@ -13,12 +13,13 @@ typealias ServiceResponse = (JSON, NSError?) -> Void
 class RestApiManager: NSObject {
     static let sharedInstance = RestApiManager()
     
-    let baseURL = "https://givemerecipes.herokuapp.com/recipes.json"
+    let baseURL = "https://givemerecipes.herokuapp.com/api"
+//       let baseURL = "http://localhost:3000/api"
     
-    
-    
-    func getRecipes(onCompletion: (JSON) -> ()) -> () {
-        let route = baseURL
+    func getRecipes(search: String , onCompletion: (JSON) -> ()) -> () {
+        print("Made it to get recipes")
+        let route = baseURL + search
+        print(route)
         makeHTTPGetRequest(route, onCompletion: { json, err in
             onCompletion(json as JSON)
         })
@@ -37,14 +38,19 @@ class RestApiManager: NSObject {
     }
     
     func makeHTTPPostRequest(image: UIImage, name: String, description: String , ingredients: String, instructions: String) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://givemerecipes.herokuapp.com/api/recipes")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://givemerecipes.herokuapp.com/recipes")!)
+//        https://givemerecipes.herokuapp.com
+//        http://localhost:3000
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let key = NSUserDefaults.standardUserDefaults().stringForKey("currentUserKey")
+        request.setValue("Token token="+"\(key)", forHTTPHeaderField: "Authorization")
         
         let imageData = UIImageJPEGRepresentation(image, 0.9)
         let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) // encode the image
-        let params = ["file_data": base64String, "user_id":1 , "name": name, "description": description, "ingredients": ingredients , "instructions": instructions]
+        let userId = NSUserDefaults.standardUserDefaults().stringForKey("currentUserId")
+        let params = ["file_data": base64String, "user_id": userId! , "name": name, "description": description, "ingredients": ingredients , "instructions": instructions]
         do {
            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions(rawValue: 0))
             let session = NSURLSession.sharedSession()
@@ -81,9 +87,14 @@ class RestApiManager: NSObject {
 
     
     func getImage(url: String) -> UIImage {
-        let data = NSData(contentsOfURL: NSURL(string: url)!)
-        let image = UIImage(data: data!)
-        return image!
+        if url != "null" {
+            let data = NSData(contentsOfURL: NSURL(string: url)!)
+            let image = UIImage(data: data!)
+            return image!
+        } else {
+            let image = UIImage(named: "question")!
+            return image
+        }
     }
     
     

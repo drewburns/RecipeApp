@@ -17,13 +17,15 @@ class Recipe {
     var instructions: String?
     var imageUrl: String?
     var image: UIImage?
+    var user: User
     
-    init(Name: String, Description: String, Ingredients: String, Instructions: String, ImageUrl: String , Image: UIImage) {
+    init(Name: String, Description: String, Ingredients: String, Instructions: String, ImageUrl: String , Image: UIImage, TheUser: User) {
         name = Name
         description = Description
         ingredients = Ingredients
         instructions = Instructions
         imageUrl = ImageUrl
         image = Image
+        user = TheUser
     }
 }
