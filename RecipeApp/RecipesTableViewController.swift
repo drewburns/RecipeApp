@@ -14,6 +14,7 @@ class RecipesTableViewController: UITableViewController {
     var search = "/recipes"
     var userEmail: String?
     
+    @IBOutlet weak var settingButtonItem: UIBarButtonItem!
     func refresh() {
         if refreshControl != nil {
             refreshControl?.beginRefreshing()
@@ -130,7 +131,6 @@ class RecipesTableViewController: UITableViewController {
                 defaults.setObject(nil, forKey: "currentUserId")
                 defaults.setObject(nil, forKey: "currentUserKey")
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    print("HI")
                     self.performSegueWithIdentifier("logOut", sender: self)
                 })
             }

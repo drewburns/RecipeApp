@@ -71,11 +71,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="VBh-p2-zRe">
                         <barButtonItem key="leftBarButtonItem" title="⚙" id="HJh-1Q-cQm">
+                            <color key="tintColor" red="0.76603929920000002" green="0.2709103035" blue="0.1272106543" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="userOptions:" destination="tTC-jn-bes" id="Ywe-FP-Y2L"/>
+                                <action selector="userOptions:" destination="tTC-jn-bes" id="Mkg-8T-Us3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add Recipe" id="o9O-di-jHo">
+                        <barButtonItem key="rightBarButtonItem" title="✚" id="o9O-di-jHo">
                             <color key="tintColor" red="0.76603929920000002" green="0.2709103035" blue="0.1272106543" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="B5T-Si-MvF" kind="show" id="68R-kK-ppp"/>
@@ -89,6 +90,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
+                        <outlet property="settingButtonItem" destination="HJh-1Q-cQm" id="JzR-nl-Gba"/>
                         <outlet property="view" destination="tEA-cT-ued" id="QS1-Gx-5pc"/>
                         <segue destination="j1H-0T-ezx" kind="unwind" identifier="logOut" unwindAction="logOut:" id="9Sc-qw-ov9"/>
                     </connections>
@@ -116,14 +118,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waj-Wf-jdM" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-Qy-LW9">
-                                                <rect key="frame" x="20" y="20" width="100" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ZZX-Qy-LW9" secondAttribute="height" multiplier="1:1" id="04I-j4-EfU"/>
-                                                    <constraint firstAttribute="width" constant="100" id="K1T-LT-ums"/>
-                                                    <constraint firstAttribute="height" constant="100" id="nfF-Wf-JCA"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-AV-6Iu">
                                                 <rect key="frame" x="128" y="20" width="452" height="19.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -198,6 +192,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-Qy-LW9">
+                                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ZZX-Qy-LW9" secondAttribute="height" multiplier="1:1" id="04I-j4-EfU"/>
+                                                    <constraint firstAttribute="width" constant="100" id="K1T-LT-ums"/>
+                                                    <constraint firstAttribute="height" constant="100" id="nfF-Wf-JCA"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -513,7 +515,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1UB-VK-viT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zXC-n2-HMt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zXC-n2-HMt" customClass="NavigationController" customModule="RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hjX-76-Ucq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -23,6 +23,7 @@
 		519AA3351C1382BC00BA28A8 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */; };
 		51A971F71C1BCA8000D380BE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A971F61C1BCA8000D380BE /* User.swift */; };
 		51A971F91C1C88B300D380BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A971F81C1C88B300D380BE /* LoginViewController.swift */; };
+		51A971FD1C1CEA8800D380BE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A971FC1C1CEA8800D380BE /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		51A971F61C1BCA8000D380BE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51A971F81C1C88B300D380BE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		51A971FC1C1CEA8800D380BE /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				51A971F81C1C88B300D380BE /* LoginViewController.swift */,
 				519AA3291C135C5200BA28A8 /* SwiftlyJSON.swift */,
 				519AA2FA1C135BE000BA28A8 /* Main.storyboard */,
+				51A971FC1C1CEA8800D380BE /* NavigationController.swift */,
 				5186E0DD1C14FFF000D76D35 /* NewRecipeViewController.swift */,
 				519AA3341C1382BC00BA28A8 /* RecipeViewController.swift */,
 				519AA3321C1368F700BA28A8 /* RecipeTableViewCell.swift */,
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				519AA32A1C135C5200BA28A8 /* SwiftlyJSON.swift in Sources */,
+				51A971FD1C1CEA8800D380BE /* NavigationController.swift in Sources */,
 				519AA3311C1368CD00BA28A8 /* RecipesTableViewController.swift in Sources */,
 				519AA32F1C135C7900BA28A8 /* Request.swift in Sources */,
 				519AA2FF1C135BE000BA28A8 /* RecipeApp.xcdatamodeld in Sources */,
