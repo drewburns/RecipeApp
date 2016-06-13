@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 class RecipesTableViewController: UITableViewController {
-    var recipes = [[Recipe]]()
+    var recipes = [Recipe]()
     var search = "/recipes"
     var userEmail: String?
     
@@ -27,11 +27,13 @@ class RecipesTableViewController: UITableViewController {
         request.getRecipes(search) { (json) -> () in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let arrayOfRecipes = self.buildRecipes(json["recipes"])
-                self.recipes.insert(arrayOfRecipes, atIndex: 0)
+                self.recipes = arrayOfRecipes
                 self.tableView.reloadData()
                 sender.endRefreshing()
+                
             })
         }
+        
     }
     
     func buildRecipes(newrecipes: JSON) -> [Recipe] {
@@ -47,11 +49,12 @@ class RecipesTableViewController: UITableViewController {
             let userEmail = String(recipe["recipe"]["user"]["email"])
             let userAccessKey = String(recipe["recipe"]["user"]["api_keys"]["api_key"]["access_token"]) ?? "None"
             let createdUser = User(Email: userEmail, Id: Int(userId)!, Key: userAccessKey)
-            
+            print(name)
             let image = RestApiManager().getImage(imageUrl)
             let finalRecipe = Recipe(Name: name, Description: description, Ingredients: ingredients, Instructions: instructions, ImageUrl: imageUrl, Image: image, TheUser: createdUser)
             createdRecipes.append(finalRecipe)
         }
+
         return createdRecipes
     }
     
@@ -73,11 +76,11 @@ class RecipesTableViewController: UITableViewController {
         return recipes.count
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes[section].count
+        return recipes.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("recipe", forIndexPath: indexPath) as! RecipeTableViewCell
-        cell.recipe = recipes[indexPath.section][indexPath.row]
+        cell.recipe = recipes[indexPath.row]
         return cell
     }
     
